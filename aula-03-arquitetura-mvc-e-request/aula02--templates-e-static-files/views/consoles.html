@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main></main>
+    <H1>Consoles em destaque</H1>
+    <li>Consoles: {{ consoles }}</li>
+        <li>Lançamento: {{ lancamento }}</li>
+        <!-- aqui estamos usando as variáveis que criamos no app.py para mostrar as informações do jogo na página de games.html -->
+
+            <h3>TOP Players - Ranking</h3>
+            <ol>
+                {% for jogador in jogadores %}
+                    <li>{{ jogador }}</li>
+                {% endfor %}
+            </ol>
+
+    <p>O jogo {{ titulo }} tem {{ 2026 - ano }} ano</p>
+    <a href="/">Voltar</a>
+</main>
+
+{% endblock content %}
