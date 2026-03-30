@@ -1,9 +1,11 @@
 #Importando o render_template
 #Motor para renderizar as páginas
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 
 #Criando a função para receber o flask (app)
 def init_app(app):
+    #SIMULANDO UM BANCO DE DADOS
+    listaGames = [{"título": "CS-GO", "ano": 2012, "categoria": "FPS Online"}]
     #A partr daqui virão as rotas
     @app.route('/')
     # Def serve para criar funçoes no Python
@@ -46,3 +48,14 @@ def init_app(app):
                             #enviando as variáveis
                             consoles=consoles, 
                             lancamento=lancamento)
+        #ROTA DE CADASTRO DE JOGOS
+    @app.route('/cadgames', methods=['GET','POST'])
+    def cadgames():
+        #Verificando se o método da requisição é POST
+        if request.method == 'POST':
+            #Recebendo os dados do formulario
+            listaGames.append({'titulo' : request.form.get ('titulo'), 'ano' : request.form.get('ano'), 'categoria' : request.form.get('categoria')})
+            #O método append() adiciona valores a lista
+            return redirect(url_for('cadgames'))
+        return render_template('cadgames.html',
+                               listaGames = listaGames)
