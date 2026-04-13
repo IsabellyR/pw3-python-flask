@@ -1,134 +1,26 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yu-Gi-Oh Duel Links</title>
-    <style>
-        body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+{% extends 'index.html' %}
 
+{% block content %}
+<h1>Decks em destaque</h1>
+<hr>
 
-table {
-    border-collapse: collapse;
-    width: 80%;
-    max-width: 900px;
-    background: rgba(0, 0, 0, 0.85);
-    color: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 0 25px #00c3ff;
-}
+<table>
+    <tr>
+        <th>Nome</th>
+        <th>Card</th>
+        <th>Preço</th>
+        <th>Tier</th>
+    </tr>
 
+    {% for deck in lista_decks %}
+    <tr>
+        <td>{{ deck.nome }}</td>
+        <td>{{ deck.card }}</td>
+        <td>{{ deck.preco }}</td>
+        <td>{{ deck.tier }}</td>
+    </tr>
+    {% endfor %}
+</table>
 
-thead {
-    background: linear-gradient(90deg, #005bea, #00c6fb);
-}
-
-thead th {
-    padding: 15px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 14px;
-}
-
-
-tbody td {
-    padding: 12px;
-    text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-
-tbody tr {
-    transition: 0.3s;
-}
-
-tbody tr:hover {
-    background: rgba(0, 195, 255, 0.2);
-    transform: scale(1.01);
-}
-
-
-tbody tr td:last-child {
-    font-weight: bold;
-}
-
-
-tbody tr:nth-child(1) td:last-child,
-tbody tr:nth-child(2) td:last-child {
-    color: #00ffcc;
-}
-
-
-tbody tr:nth-child(3) td:last-child,
-tbody tr:nth-child(4) td:last-child {
-    color: #ffcc00;
-}
-
-
-tbody tr:nth-child(5) td:last-child,
-tbody tr:nth-child(6) td:last-child {
-    color: #ff4d4d;
-}
-    </style>
-</head>
-<body>
-  <table border="1">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Card Principal</th>
-                 <th>Preço</th>
-                <th>Tier</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Traptrix</td>
-                <td>Traptrix Sera</td>
-                <td>65K Gemas</td>
-                <td>Tier 1</td>
-                
-            </tr>
-            <tr>
-                <td>Branded Despia</td>
-                <td>Branded Fusion</td>
-                <td>54K Gemas</td>
-                <td>Tier 1</td>
-            </tr>
-              <tr>
-                <td>Tachyon</td>
-                <td>Number 107: Galaxy-Eyes Tachyon Dragon</td>
-                <td>56.5K Gemas</td>
-                <td>Tier 2</td>
-            </tr>
-             <tr>
-                <td>Beetrooper</td>
-                <td>Giant Beetrooper Invincible Atlas</td>
-                <td>32K Gemas</td>
-                <td>Tier 2</td>
-            </tr>
-              <tr>
-                <td>P.U.N.K</td>
-                <td>Noh-P.U.N.K. Rising Scale</td>
-                <td>34K Gemas</td>
-                <td>Tier 3</td>
-            </tr>
-              <tr>
-                <td>Shinobird</td>
-                <td>Shinobaron Peacock</td>
-                <td>40.5K Gemas</td>
-                <td>Tier 3</td>
-            </tr>
-        </tbody>       
-    </table>
-</body>
-</html>
+<a href="/">Voltar</a>
+{% endblock %}

@@ -1,69 +1,16 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yu-Gi-Oh Duel Links</title>
-    <style>
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: linear-gradient(135deg, #0f0c29, #1a1a40, #24243e);
-    color: white;
-    text-align: center;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+<!-- Importando o template base -->
+{% extends 'base.html' %}
 
+{% block content %}
+<main>
 
-h1 {
-    font-size: 48px;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    background: linear-gradient(90deg, #00f7ff, #ff00c8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 15px rgba(0, 247, 255, 0.6);
-    animation: glow 2s infinite alternate;
-}
-
-h3 {
-    font-weight: 400;
-    font-size: 20px;
-    color: #dcdcdc;
-    max-width: 600px;
-}
-
-
-hr {
-    margin-top: 30px;
-    width: 60%;
-    height: 3px;
-    border: none;
-    background: linear-gradient(90deg, #00f7ff, #ff00c8);
-    border-radius: 10px;
-}
-
-
-@keyframes glow {
-    from {
-        text-shadow: 0 0 10px #00f7ff;
-    }
-    to {
-        text-shadow: 0 0 25px #ff00c8;
-    }
-}
-        
-    </style>
-</head>
-<body>
-    <h1>Seja bem-vindo!</h1>
-    <h3>Aqui você poderá cadastrar os seus decks e conferir os metas!</h3>
+    <h1>Bem vindo ao Yu-Gi-Oh Duel Links!</h1>
+    <h3>Seu site favorito para Decks de Yu-Gi-Oh!</h3>
     <hr>
-</body>
-</html>
+
+    <hr>
+
+    <img src="{{url_for('static', filename='/imgs/dl.jpg')}}" alt="Yu-Gi-Oh" width="720px">
+
+</main>
+{% endblock content %}
