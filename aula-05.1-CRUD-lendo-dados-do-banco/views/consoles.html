@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <h1>Consoles em destaque</h1>
+
+    <ul>
+        {% for console in consoles %}
+            <li>
+                {{ console.nome }} - Lançamento: {{ console.ano }}  
+                (Esse console tem {{ 2026 - console.ano }} anos)
+            </li>
+        {% endfor %}
+    </ul>
+
+    {% if jogadores %}
+    <h3>TOP Players - Ranking</h3>
+    <ol>
+        {% for jogador in jogadores %}
+            <li>{{ jogador }}</li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+
+    <a href="/">Voltar</a>
+</main>
+{% endblock content %}
