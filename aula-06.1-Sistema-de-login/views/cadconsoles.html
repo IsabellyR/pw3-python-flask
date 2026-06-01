@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Cadastro de Consoles</h2>
+<hr>
+
+<form action="{{url_for('cadconsoles')}}" method="POST">
+    <label>Nome</label>
+    <input type="text" name="nome" placeholder="Insira o nome do console" class="form-control" required>
+     <label>Fabricante</label>
+    <input type="text" name="fabricante" placeholder="Insira o fabricante do console" class="form-control" required>
+    <label>Ano</label>
+    <input type="text" name="ano" placeholder="Insira o ano do console" class="form-control" required>
+   
+
+    <input type="submit" value="Cadastrar" class="btn btn-success">
+    <input type="reset" value="Limpar" class="btn btn-danger">
+</form>
+<br>
+<hr>
+<h4>Consoles cadastrados:</h4>
+<table class="table table-bordered table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Nome</th>
+            <th>Fabricante</th>
+            <th>Ano</th>
+           
+        </tr> 
+    </thead>
+    <tbody>
+         {% for console in listaConsoles %}
+         <tr>
+            <td>{{console.nome}}</td>
+            <td>{{console.fabricante}}</td>
+            <td>{{console.ano}}</td>
+        
+         </tr>
+         {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
